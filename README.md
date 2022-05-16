@@ -115,6 +115,10 @@ Users
     Email   : editor@editor.com
     Password: 1234567890
 
+    Name    : Guest
+    Email   : guest@guest.com
+    Password: 1234567890
+
    
  
 

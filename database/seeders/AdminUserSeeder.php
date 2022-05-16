@@ -23,39 +23,38 @@ class AdminUserSeeder extends Seeder
         // $permission->assignRole($adminRole);
 
         $adminUser = User::factory()->create([
-            'name'=>'SuperAdmin',
+            'name' => 'SuperAdmin',
             'email' => 'superadmin@admin.com',
             'password' => bcrypt('1234567890')
         ]);
         $adminUser->assignRole('Super Admin');
 
         $adminUser = User::factory()->create([
-            'name'=>'Admin',
+            'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('1234567890')
         ]);
         $adminUser->assignRole('admin');
 
         $adminAuthor = User::factory()->create([
-            'name'=>'Author',
+            'name' => 'Author',
             'email' => 'author@author.com',
             'password' => bcrypt('1234567890')
         ]);
         $adminAuthor->assignRole('author');
 
         $adminEditor = User::factory()->create([
-            'name'=>'Editor',
+            'name' => 'Editor',
             'email' => 'editor@editor.com',
             'password' => bcrypt('1234567890')
         ]);
         $adminEditor->assignRole('editor');
 
         $adminGuest = User::factory()->create([
-            'name'=>'Guest',
+            'name' => 'Guest',
             'email' => 'guest@guest.com',
             'password' => bcrypt('1234567890')
         ]);
         $adminGuest->assignRole('guest');
     }
-
 }
