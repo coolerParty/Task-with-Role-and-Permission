@@ -67,12 +67,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Installation
 
 Terminal
+
     cd "directory file"
     git clone https://github.com/coolerParty/Task-with-Role-and-Permission.git
     composer install
 
 make ".env" file
     Edit: 
+    
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -84,6 +86,7 @@ Create Database
     Database Name: task
   
 Terminal
+
     php artisan key:generate
     php artisan migrate:fresh --seed    
     npm run install
@@ -92,9 +95,11 @@ Terminal
     php artisan serve
 
 copy URL
+
         127.0.0.1:8000
         
 Users
+
     Name    : SuperAdmin
     Email   : superadmin@admin.com
     Password: 1234567890
