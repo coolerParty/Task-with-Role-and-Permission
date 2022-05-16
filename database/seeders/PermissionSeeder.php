@@ -110,6 +110,18 @@ class PermissionSeeder extends Seeder
         }
         // Editor Role End
 
+        // guest Role Start
+        $roleGuest = Role::create(['guard_name' => 'web', 'name' => 'guest']);
+
+        $guestPermissions = [
+            'task-show',
+        ];
+
+        foreach($guestPermissions as $permission){
+            $roleGuest->givePermissionTo($permission);
+        }
+        // guest Role End
+
 
     }
 

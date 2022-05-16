@@ -23,7 +23,12 @@ class UserController extends Controller
     public function create()
     {
         $this->authorize('user-create');
-        $roles = Role::get();
+        if (auth()->user()->can('Super Admin')) {
+            $roles = Role::get();
+        } else {
+            $roles = Role::whereNotIn('name', ['Super Admin'])->get();
+        }
+
         return view('users.create', compact('roles'));
     }
 
@@ -37,6 +42,14 @@ class UserController extends Controller
             'name'     => ['required', 'min:3'],
             'role'     => ['required'],
         ]);
+
+        $roles = Role::whereIn('name', ['Super Admin'])->pluck('id')->all();
+
+        foreach ($request->role as $p) {
+            if (in_array($p, $roles)  && !auth()->user()->can('Super Admin')) {
+                abort(403);
+            }
+        }
 
         $user = User::create([
             'password' => Hash::make($request->input('password')),
@@ -57,7 +70,12 @@ class UserController extends Controller
         $this->authorize('user-edit');
 
         $user = User::find($id);
-        $roles = Role::get();
+        if (auth()->user()->can('Super Admin')) {
+            $roles = Role::get();
+        } else {
+            $roles = Role::whereNotIn('name', ['Super Admin'])->get();
+        }
+
         $userRoles = DB::table('model_has_roles')
             ->where('model_has_roles.model_id', $id)
             ->pluck('model_has_roles.role_id')
@@ -75,6 +93,14 @@ class UserController extends Controller
             'role' => 'required',
         ]);
 
+        $roles = Role::whereIn('name', ['Super Admin'])->pluck('id')->all();
+
+        foreach ($request->role as $p) {
+            if (in_array($p, $roles)  && !auth()->user()->can('Super Admin')) {
+                abort(403);
+            }
+        }
+
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->save();
@@ -83,5 +109,15 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('success', 'User updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $this->authorize('user-delete');
+
+        User::find($id)->delete();
+
+        return redirect()->route('users.index')
+            ->with('success', 'User deleted successfully');
     }
 }
