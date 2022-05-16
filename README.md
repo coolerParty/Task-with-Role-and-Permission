@@ -72,8 +72,7 @@ Terminal
     git clone https://github.com/coolerParty/Task-with-Role-and-Permission.git
     composer install
 
-make ".env" file
-    Edit: 
+Rename ".env.example" file to ".env" then Edit 
     
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -82,8 +81,8 @@ make ".env" file
     DB_USERNAME=root
     DB_PASSWORD=
     
-Create Database
-    Database Name: task
+Create Database Name: task
+
   
 Terminal
 
@@ -91,12 +90,11 @@ Terminal
     php artisan migrate:fresh --seed    
     npm run install
     npm run dev
-    
     php artisan serve
 
 copy URL
 
-        127.0.0.1:8000
+    127.0.0.1:8000
         
 Users
 
