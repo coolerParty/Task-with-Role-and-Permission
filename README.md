@@ -70,6 +70,7 @@ Terminal
 
     cd "directory file"
     git clone https://github.com/coolerParty/Task-with-Role-and-Permission.git
+    cd Task-with-Role-and-Permission
     composer install
 
 Rename ".env.example" file to ".env" then Edit 
