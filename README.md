@@ -62,3 +62,55 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Installation
+
+Terminal
+    cd "directory file"
+    git clone https://github.com/coolerParty/Task-with-Role-and-Permission.git
+    composer install
+
+make ".env" file
+    Edit: 
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=task
+    DB_USERNAME=root
+    DB_PASSWORD=
+    
+Create Database
+    Database Name: task
+  
+Terminal
+    php artisan key:generate
+    php artisan migrate:fresh --seed    
+    npm run install
+    npm run dev
+    
+    php artisan serve
+
+copy URL
+        127.0.0.1:8000
+        
+Users
+    Name    : SuperAdmin
+    Email   : superadmin@admin.com
+    Password: 1234567890
+    
+    Name    : Admin
+    Email   : admin@admin.com
+    Password: 1234567890
+    
+    Name    : Author
+    Email   : author@author.com
+    Password: 1234567890
+    
+    Name    : Editor
+    Email   : editor@editor.com
+    Password: 1234567890
+
+   
+ 
+
