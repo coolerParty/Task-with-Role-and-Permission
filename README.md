@@ -89,7 +89,7 @@ Terminal
 
     php artisan key:generate
     php artisan migrate:fresh --seed    
-    npm run install
+    npm install
     npm run dev
     php artisan serve
 
